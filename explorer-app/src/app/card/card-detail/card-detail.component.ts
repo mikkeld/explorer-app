@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { CardService } from '../card.service';
+import { Card } from '../card';
 
 @Component({
   selector: 'app-card-detail',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  card: Card;
 
-  ngOnInit() {
+  constructor(
+    private cardService: CardService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.route.params.forEach((params: Params) => {
+      let id = +params['id'];
+      this.cardService.getCard(id)
+        .then(card => this.card = card);
+    });
   }
 
 }

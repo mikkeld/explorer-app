@@ -9,13 +9,15 @@ import { MenuComponent } from './menu/menu.component';
 import { CardComponent } from './card/card.component';
 import { CardService } from './card/card.service';
 import { CardDetailComponent } from './card/card-detail/card-detail.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     CardComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
