@@ -11,6 +11,9 @@ import { CardService } from './card/card.service';
 import { CardDetailComponent } from './card/card-detail/card-detail.component';
 import { MapComponent } from './map/map.component';
 
+import { MdCardModule } from '@angular2-material/card';
+import { MdButtonModule } from '@angular2-material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,9 @@ import { MapComponent } from './map/map.component';
     BrowserModule,
     CommonModule,
     FormsModule,
-    routing
+    routing,
+    MdButtonModule,
+    MdCardModule
   ],
   providers: [
     CardService
