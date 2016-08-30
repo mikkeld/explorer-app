@@ -7,12 +7,15 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { CardComponent } from './card/card.component';
+import { CardService } from './card/card.service';
+import { CardDetailComponent } from './card/card-detail/card-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    CardComponent
+    CardComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,9 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     routing
   ],
-  providers: [],
+  providers: [
+    CardService
+  ],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]
 })

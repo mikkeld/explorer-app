@@ -1,3 +1,12 @@
 <p>
   card works!
 </p>
+<div *ngFor="let card of cards">
+  <img [src]="card.image">
+  <h2>{{card.name}}</h2>
+  <p>{{card.description}}</p>
+  <ul>
+    <li *ngFor="let tag of card.tags">{{tag}}</li>
+  </ul>
+</div>
+
