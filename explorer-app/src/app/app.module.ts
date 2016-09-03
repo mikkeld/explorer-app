@@ -13,6 +13,11 @@ import { MapComponent } from './map/map.component';
 
 import { MdCardModule } from '@angular2-material/card';
 import { MdButtonModule } from '@angular2-material/button';
+import { MdSidenavModule } from '@angular2-material/sidenav';
+import { MdToolbarModule } from '@angular2-material/toolbar';
+import { MdMenuModule } from '@angular2-material/menu';
+import { MdIconModule } from '@angular2-material/icon';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import { MdButtonModule } from '@angular2-material/button';
     FormsModule,
     routing,
     MdButtonModule,
-    MdCardModule
+    MdCardModule,
+    MdSidenavModule,
+    MdToolbarModule,
+    MdMenuModule,
+    MdIconModule
   ],
   providers: [
     CardService

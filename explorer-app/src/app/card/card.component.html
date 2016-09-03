@@ -1,15 +1,14 @@
-<p>
-  card works!
-</p>
-<div *ngFor="let card of cards">
-  <md-card>
-  <img [src]="card.image">
-  <h2>{{card.name}}</h2>
-  <p>{{card.description}}</p>
-  <ul>
-    <li *ngFor="let tag of card.tags">{{tag}}</li>
-  </ul>
-  <button (click)="gotoDetail(card)">Details</button>
+<div class="card-container">
+  <md-card *ngFor="let card of cards">
+    <img md-card-image [alt]="card.name" [src]="card.image">
+    <md-card-title> {{card.name}}</md-card-title>
+    <md-card-content>{{card.description}}</md-card-content>
+    <ul>
+      <li *ngFor="let tag of card.tags">{{tag}}</li>
+    </ul>
+    <md-card-actions align="end">
+      <button md-button color="primary" (click)="gotoDetail(card)">DETAILS</button>
+    </md-card-actions>
   </md-card>
 </div>
 
