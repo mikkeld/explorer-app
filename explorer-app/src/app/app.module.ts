@@ -18,7 +18,6 @@ import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdMenuModule } from '@angular2-material/menu';
 import { MdIconModule } from '@angular2-material/icon';
 
-
 @NgModule({
   declarations: [
     AppComponent,
