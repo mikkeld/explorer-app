@@ -34,4 +34,6 @@ export class CardComponent implements OnInit {
     this.router.navigate(['/card', card.id]);
   }
 
+  formShowing: boolean;
+
 }

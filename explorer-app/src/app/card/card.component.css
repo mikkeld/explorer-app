@@ -8,3 +8,10 @@ md-card {
   display: flex;
   flex-flow: row wrap;
 }
+
+[md-fab] {
+  position: absolute;
+  right: 3%;
+  top: 34px;
+  z-index: 1;
+}
