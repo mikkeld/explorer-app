@@ -17,7 +17,8 @@ import { MdSidenavModule } from '@angular2-material/sidenav';
 import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdMenuModule } from '@angular2-material/menu';
 import { MdIconModule } from '@angular2-material/icon';
-import { MdInput } from '@angular2-material/input';
+import { MdInputModule } from '@angular2-material/input';
+import { MdCheckboxModule } from '@angular2-material/checkbox';
 
 import { AngularFireModule } from 'angularfire2';
 import { CreateCardComponent } from './card/create-card/create-card.component';
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     MdToolbarModule,
     MdMenuModule,
     MdIconModule,
-    MdInput
+    MdInputModule,
+    MdCheckboxModule
   ],
   providers: [
     CardService

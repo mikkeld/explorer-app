@@ -12,14 +12,14 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class CardComponent implements OnInit {
 
   cards: Card[];
-  items: FirebaseListObservable<any[]>;
+  locations: FirebaseListObservable<any[]>;
 
   constructor(
     private cardService: CardService,
     private router: Router,
     af: AngularFire)
   {
-    this.items = af.database.list('/items');
+    this.locations = af.database.list('/locations');
   }
 
   getCards(): void {

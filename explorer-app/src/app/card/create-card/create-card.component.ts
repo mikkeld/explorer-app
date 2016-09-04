@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from '../card';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-create-card',
@@ -7,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCardComponent implements OnInit {
 
-  test: string = "Test";
+  locations: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(af: AngularFire) {
+    this.locations = af.database.list('/trips')
+  }
 
   ngOnInit() {
+  }
+
+  card = new Card;
+
+  createLocation(val) {
+    this.locations.push(this.card);
   }
 
 }
