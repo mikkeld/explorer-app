@@ -18,6 +18,15 @@ import { MdToolbarModule } from '@angular2-material/toolbar';
 import { MdMenuModule } from '@angular2-material/menu';
 import { MdIconModule } from '@angular2-material/icon';
 
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
+  authDomain: "explorer-app-12f14.firebaseapp.com",
+  databaseURL: "https://explorer-app-12f14.firebaseio.com",
+  storageBucket: "explorer-app-12f14.appspot.com",
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +37,7 @@ import { MdIconModule } from '@angular2-material/icon';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     CommonModule,
     FormsModule,
     routing,
