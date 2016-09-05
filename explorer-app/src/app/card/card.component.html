@@ -9,10 +9,13 @@
       <li *ngFor="let tag of card.tags">{{tag}}</li>
     </ul>
     <md-card-actions align="end">
+      <button md-button color="primary" (click)="like(card)"><md-icon>favorite_border</md-icon></button>
       <button md-button color="primary" (click)="gotoDetail(card)">DETAILS</button>
     </md-card-actions>
   </md-card>
 </div>
+
+<button (click)="login()">Login</button>
 
 <div>
   <ul>

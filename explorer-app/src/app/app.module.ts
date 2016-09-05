@@ -10,6 +10,7 @@ import { CardComponent } from './card/card.component';
 import { CardService } from './card/card.service';
 import { CardDetailComponent } from './card/card-detail/card-detail.component';
 import { MapComponent } from './map/map.component';
+import { UserService } from './user/user.service';
 
 import { MdCardModule } from '@angular2-material/card';
 import { MdButtonModule } from '@angular2-material/button';
@@ -19,8 +20,9 @@ import { MdMenuModule } from '@angular2-material/menu';
 import { MdIconModule } from '@angular2-material/icon';
 import { MdInputModule } from '@angular2-material/input';
 import { MdCheckboxModule } from '@angular2-material/checkbox';
+import { MdListModule } from '@angular2-material/list';
 
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 import { CreateCardComponent } from './card/create-card/create-card.component';
 
 export const firebaseConfig = {
@@ -28,6 +30,11 @@ export const firebaseConfig = {
   authDomain: "explorer-app-12f14.firebaseapp.com",
   databaseURL: "https://explorer-app-12f14.firebaseio.com",
   storageBucket: "explorer-app-12f14.appspot.com",
+};
+
+export const myFirebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
 };
 
 @NgModule({
@@ -41,7 +48,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     CommonModule,
     FormsModule,
     routing,
@@ -52,10 +59,12 @@ export const firebaseConfig = {
     MdMenuModule,
     MdIconModule,
     MdInputModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdListModule
   ],
   providers: [
-    CardService
+    CardService,
+    UserService
   ],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]

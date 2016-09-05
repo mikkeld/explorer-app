@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from './card';
 import { CardService } from './card.service';
 import { Router } from '@angular/router'
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, AuthProviders } from 'angularfire2';
 
 @Component({
   selector: 'app-card',
@@ -17,13 +17,14 @@ export class CardComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private router: Router,
-    af: AngularFire)
+    public af: AngularFire)
   {
     this.locations = af.database.list('/locations');
   }
 
   getCards(): void {
-    this.cardService.getCards().then(cards => this.cards = cards);
+    // this.cardService.getCards().then(cards => this.cards = cards);
+
   }
 
   ngOnInit(): void {
@@ -32,6 +33,11 @@ export class CardComponent implements OnInit {
 
   gotoDetail(card: Card): void {
     this.router.navigate(['/card', card.id]);
+  }
+
+  login() {
+    this.af.auth.login();
+    console.log(this.af.auth)
   }
 
   formShowing: boolean;
