@@ -1,28 +1,20 @@
 <app-create-card *ngIf="formShowing"></app-create-card>
 
 <div class="card-container">
-  <md-card *ngFor="let card of cards">
-    <img md-card-image [alt]="card.name" [src]="card.image">
-    <md-card-title> {{card.name}}</md-card-title>
-    <md-card-content>{{card.description}}</md-card-content>
+  <md-card *ngFor="let location of locations | async">
+    <img md-card-image [alt]="location.name" [src]="location.image">
+    <md-card-title> {{location.name}}</md-card-title>
+    <md-card-content>{{location.description}}</md-card-content>
     <ul>
-      <li *ngFor="let tag of card.tags">{{tag}}</li>
+      <li *ngFor="let tag of location.tags">{{tag}}</li>
     </ul>
+
     <md-card-actions align="end">
-      <button md-button color="primary" (click)="like(card)"><md-icon>favorite_border</md-icon></button>
-      <button md-button color="primary" (click)="gotoDetail(card)">DETAILS</button>
+      <button *ngIf="!(location.liked | async)?.liked" md-button color="primary" (click)="like(location, true)"><md-icon>favorite_border</md-icon></button>
+      <button *ngIf="(location.liked | async)?.liked" md-button color="primary" (click)="like(location, false)"><md-icon>favorite</md-icon></button>
+      <button md-button color="primary" (click)="gotoDetail(location)">DETAILS</button>
     </md-card-actions>
   </md-card>
-</div>
-
-<button (click)="login()">Login</button>
-
-<div>
-  <ul>
-    <li *ngFor="let item of items | async">
-      {{item.name}}
-    </li>
-  </ul>
 </div>
 
 <button md-fab (click)="formShowing=!formShowing">

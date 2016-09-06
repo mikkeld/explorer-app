@@ -20,12 +20,12 @@
     Explorer App
 
     <div id="user-container">
-      <div hidden id="user-pic"></div>
-      <div hidden id="user-name"></div>
-      <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+      <div *ngIf="user" id="user-pic-container"><img id="user-image" [src]="user.photoURL"></div>
+      <div *ngIf="user" id="user-name">{{user.displayName}}</div>
+      <button *ngIf="user" id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white" (click)="logout()">
         Sign-out
       </button>
-      <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white" (click)="login()">
+      <button *ngIf="!user" id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white" (click)="login()">
         <i class="material-icons">account_circle</i>Sign-in with Google
       </button>
     </div>
@@ -33,6 +33,7 @@
   </md-toolbar>
 
   <app-menu></app-menu>
+
   <router-outlet></router-outlet>
 
 </md-sidenav-layout>

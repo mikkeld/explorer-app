@@ -8,22 +8,33 @@
 }
 
 #user-container {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  top: 22px;
-  width: 100%;
-  right: 0;
-  padding-left: 10px;
-  justify-content: flex-end;
-  padding-right: 10px;
+  float:right;
+  right:0px;
+  position:absolute;
+  top: 0px;
+  display: inline;
 }
+
+#user-container #user-image {
+  height: 40px;
+  width: 40px;
+  top:30px;
+  display:inline;
+}
+
+#user-container #user-name {
+  display: inline;
+}
+
+#user-container #user-pic-container {
+  display: inline;
+}
+
+
 /*#user-container #user-pic {*/
   /*top: -3px;*/
   /*position: relative;*/
   /*display: inline-block;*/
-  /*background-image: url('/images/profile_placeholder.png');*/
-  /*background-repeat: no-repeat;*/
   /*width: 40px;*/
   /*height: 40px;*/
   /*background-size: 40px;*/

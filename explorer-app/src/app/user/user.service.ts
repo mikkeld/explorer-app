@@ -9,9 +9,6 @@ import { AngularFire, AuthProviders } from 'angularfire2';
 export class UserService {
 
   constructor(private af: AngularFire) {
-    this.af.auth.subscribe(
-
-    )
   }
 
   login(): Promise<boolean> {
@@ -22,9 +19,4 @@ export class UserService {
     });
     return res;
   }
-
-  getCurrentUser(): Promise<any> {
-    return Promise.resolve(this.af.auth);
-  }
-
 }
