@@ -25,6 +25,7 @@ import { MdListModule } from '@angular2-material/list';
 import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 import { CreateCardComponent } from './card/create-card/create-card.component';
 import { FavoriteCardsComponent } from './favorite-cards/favorite-cards.component';
+import { WeatherComponent } from './weather/weather.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
@@ -46,7 +47,8 @@ export const myFirebaseAuthConfig = {
     CardDetailComponent,
     MapComponent,
     CreateCardComponent,
-    FavoriteCardsComponent
+    FavoriteCardsComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
