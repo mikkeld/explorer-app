@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CardComponent } from './card/card.component';
 import { CardDetailComponent } from './card/card-detail/card-detail.component';
 import {MapComponent} from './map/map.component';
+import {FavoriteCardsComponent} from "./favorite-cards/favorite-cards.component";
 
 const appRoutes: Routes = [
   {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'map',
     component: MapComponent
+  },
+  {
+    path: 'favorites',
+    component: FavoriteCardsComponent
   },
   {
     path: '',
