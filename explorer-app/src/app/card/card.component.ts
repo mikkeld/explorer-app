@@ -30,10 +30,6 @@ export class CardComponent implements OnInit {
       });
   }
 
-  getCards(): void {
-    // this.cardService.getCards().then(cards => this.cards = cards);
-  }
-
   ngOnInit(): void {
   }
 

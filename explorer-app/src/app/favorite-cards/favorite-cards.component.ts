@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { Observable }        from 'rxjs/Observable';
+import { CardService } from '../card/card.service';
 
 @Component({
   selector: 'app-favorite-cards',
@@ -9,20 +10,21 @@ import { Observable }        from 'rxjs/Observable';
 })
 export class FavoriteCardsComponent implements OnInit {
 
-  favoriteTours: Observable<any[]>;
   uid = 'roopk5ShJ5Wt9AyDv982XetFSrQ2';
 
+  works: any[];
+
   constructor(
-    public af: AngularFire
+    public af: AngularFire,
+    private cardService: CardService
   )
   {
-    this.favoriteTours = af.database.list('/tours')
-      .map(locations => {
-        return locations.filter(location => {
-          location.liked = af.database.object(`/likes/${this.uid}/${location.$key}`);
-          return location.liked === true;
-        })
+    this.cardService.getRandom().then(result => {
+      var filtered = result.filter(r => {
+        return r.age > 26
       });
+      console.log(filtered);
+    })
   }
 
   ngOnInit() {

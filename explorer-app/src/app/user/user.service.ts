@@ -19,4 +19,8 @@ export class UserService {
     });
     return res;
   }
+
+  logout(): void {
+    this.af.auth.logout();
+  }
 }

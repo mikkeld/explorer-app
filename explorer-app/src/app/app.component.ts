@@ -33,6 +33,6 @@ export class AppComponent implements OnInit{
   }
 
   logout(): void {
-    this.af.auth.logout();
+    this.userService.logout();
   }
 }
