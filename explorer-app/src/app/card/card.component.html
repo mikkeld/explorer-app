@@ -9,6 +9,7 @@
       <li *ngFor="let tag of location.tags">{{tag}}</li>
     </ul>
 
+    <app-weather [city]="location.name"></app-weather>
     <md-card-actions align="end">
       <button *ngIf="!(location.liked | async)?.liked" md-button color="primary" (click)="like(location, true)"><md-icon>favorite_border</md-icon></button>
       <button *ngIf="(location.liked | async)?.liked" md-button color="primary" (click)="like(location, false)"><md-icon>favorite</md-icon></button>

@@ -3,6 +3,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -26,6 +27,7 @@ import { AngularFireModule, AuthMethods, AuthProviders } from 'angularfire2';
 import { CreateCardComponent } from './card/create-card/create-card.component';
 import { FavoriteCardsComponent } from './favorite-cards/favorite-cards.component';
 import { WeatherComponent } from './weather/weather.component';
+import { WeatherService } from './weather/weather.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
@@ -56,6 +58,8 @@ export const myFirebaseAuthConfig = {
     CommonModule,
     FormsModule,
     routing,
+    HttpModule,
+    JsonpModule,
     MdButtonModule,
     MdCardModule,
     MdSidenavModule,
@@ -68,7 +72,8 @@ export const myFirebaseAuthConfig = {
   ],
   providers: [
     CardService,
-    UserService
+    UserService,
+    WeatherService
   ],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent]
