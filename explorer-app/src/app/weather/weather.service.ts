@@ -15,9 +15,10 @@ export class WeatherService {
   getWeather(): Observable<any> {
     return this.http.get('http://api.openweathermap.org/data/2.5/weather?id=2964574&APPID=0c638d84fdc82fe1965b2d60176d882a')
       .map(weather => {
-        return weather.json() || { }
+         return weather.json() || { }
       })
   }
+
 
   // Promise implementation, unused
 

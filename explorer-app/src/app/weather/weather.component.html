@@ -1,4 +1,2 @@
-<div>
-  <div>{{weather}} - city: {{city}}</div>
-</div>
+<img id="weather-image" *ngIf="weather.icon" [alt]="weather.main" src='http://openweathermap.org/img/w/{{weather.icon}}.png'>
 

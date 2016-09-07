@@ -27,10 +27,10 @@
     <div id="user-container">
       <div *ngIf="user" id="user-pic-container"><img id="user-image" [src]="user.photoURL"></div>
       <div *ngIf="user" id="user-name">{{user.displayName}}</div>
-      <button *ngIf="user" id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white" (click)="logout()">
-        Sign-out
+      <button md-button *ngIf="user" id="sign-out" (click)="logout()">
+        SIGN OUT
       </button>
-      <button *ngIf="!user" id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white" (click)="login()">
+      <button md-button *ngIf="!user" id="sign-in" (click)="login()">
         <i class="material-icons">account_circle</i>Sign-in with Google
       </button>
     </div>

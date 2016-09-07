@@ -2,6 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from './weather.service'
 import { Observable }  from 'rxjs/Observable';
 
+export class Weather {
+  public icon: string;
+  public main: string;
+}
+
 @Component({
   selector: 'app-weather',
   templateUrl: 'weather.component.html',
@@ -9,9 +14,11 @@ import { Observable }  from 'rxjs/Observable';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) { }
+  weather: Weather;
 
-  weather: any;
+  constructor(private weatherService: WeatherService) {
+    this.weather = new Weather;
+  }
 
   @Input()
   city: string;
@@ -19,7 +26,10 @@ export class WeatherComponent implements OnInit {
   getWeather() {
     this.weatherService.getWeather()
       .subscribe(
-        weather => this.weather = weather.weather[0].main
+        weather => {
+          this.weather.main = weather.weather[0].main;
+          this.weather.icon = weather.weather[0].icon;
+        }
       )
   }
 

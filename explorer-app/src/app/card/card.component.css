@@ -15,3 +15,17 @@ md-card {
   top: 34px;
   z-index: 1;
 }
+
+.card-tag-container {
+  list-style-type: none;
+  font-size: 12px;
+}
+
+.card-tag-container li {
+  margin-right:5px;
+  padding: 5px 5px 5px 5px;
+  display: inline;
+  background-color: seagreen;
+  position: relative;
+  left:10px;
+}

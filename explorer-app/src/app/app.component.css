@@ -28,6 +28,8 @@
 
 #user-container #user-pic-container {
   display: inline;
+  position:relative;
+  top:10px;
 }
 
 

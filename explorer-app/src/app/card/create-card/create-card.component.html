@@ -4,10 +4,9 @@
     <md-card-content>
       <input [(ngModel)]="card.name" placeholder="Name">
       <input [(ngModel)]="card.description" placeholder="Description">
-      <input [(ngModel)]="card.tags" placeholder="Tags">
       <input [(ngModel)]="card.image" placeholder="imageURL">
       <div>
-        <md-checkbox>Is a good dog</md-checkbox>
+        <md-checkbox *ngFor="let category of categories" (click)="setCategories(category)">{{category}}</md-checkbox>
       </div>
     </md-card-content>
     <md-card-actions align="end">

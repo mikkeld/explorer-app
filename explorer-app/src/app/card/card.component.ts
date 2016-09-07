@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
   uid = 'roopk5ShJ5Wt9AyDv982XetFSrQ2';
   cards: Card[];
   locations: Observable<any[]>;
+  filteredLocations: Observable<any[]>;
 
   constructor(
     private cardService: CardService,
@@ -28,6 +29,8 @@ export class CardComponent implements OnInit {
           return location;
         })
       });
+
+    //window["foo"] = this.locations setting window
   }
 
   ngOnInit(): void {
