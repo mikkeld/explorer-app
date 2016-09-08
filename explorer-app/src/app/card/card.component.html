@@ -1,7 +1,7 @@
 <app-create-card *ngIf="formShowing"></app-create-card>
 
 <div class="card-container">
-  <md-card *ngFor="let location of locations | async">
+  <md-card *ngFor="let location of locations">
     <img md-card-image [alt]="location.name" [src]="location.image">
     <md-card-title> {{location.name}} <app-weather [city]="location.name"></app-weather>
     </md-card-title>
@@ -13,8 +13,8 @@
       <ul class="card-tag-container">
         <li *ngFor="let tag of location.tags">{{tag}}</li>
       </ul>
-      <button *ngIf="!(location.liked | async)?.liked" md-button color="primary" (click)="like(location, true)"><md-icon>favorite_border</md-icon></button>
-      <button *ngIf="(location.liked | async)?.liked" md-button color="primary" (click)="like(location, false)"><md-icon>favorite</md-icon></button>
+      <button *ngIf="!location.like" md-button color="primary" (click)="like(location, true)"><md-icon>favorite_border</md-icon></button>
+      <button *ngIf="location.like" md-button color="primary" (click)="like(location, false)"><md-icon>favorite</md-icon></button>
       <button md-button color="primary" (click)="gotoDetail(location)">DETAILS</button>
     </md-card-actions>
   </md-card>

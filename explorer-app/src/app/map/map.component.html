@@ -1,3 +1,14 @@
-<p>
-  map works!
-</p>
+<sebm-google-map [latitude]="lat" [longitude]="lng">
+  <sebm-google-map-marker *ngFor="let location of locations" [latitude]="location.coords.lat" [longitude]="location.coords.lng" [iconUrl]="location.imgURL">
+    <sebm-google-map-info-window>
+      {{location.name}}
+      <hr>
+      <md-card-actions align="end">
+        <button md-button color="primary" (click)="gotoDetail()">DETAILS</button>
+      </md-card-actions>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
+
+<a (click)="showLikedLocations()">Click me!</a>
+

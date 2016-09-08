@@ -29,6 +29,8 @@ import { FavoriteCardsComponent } from './favorite-cards/favorite-cards.componen
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './weather/weather.service';
 
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
   authDomain: "explorer-app-12f14.firebaseapp.com",
@@ -68,7 +70,10 @@ export const myFirebaseAuthConfig = {
     MdIconModule,
     MdInputModule,
     MdCheckboxModule,
-    MdListModule
+    MdListModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBHwOMFMSURDztiCUxo4Jd-cIO8OmAjxAY'
+    })
   ],
   providers: [
     CardService,

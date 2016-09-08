@@ -8,4 +8,7 @@ export class Card {
   description: string;
   tags: string[];
   image: string;
+  loc?: any;
+  coords?: any;
+  like?: boolean;
 }

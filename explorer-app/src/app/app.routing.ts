@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'favorites',
-    component: FavoriteCardsComponent
+    component: CardComponent
   },
   {
     path: 'weather',
