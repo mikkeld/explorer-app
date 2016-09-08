@@ -30,6 +30,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { WeatherService } from './weather/weather.service';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { BikesComponent } from './bikes/bikes.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
@@ -52,7 +53,8 @@ export const myFirebaseAuthConfig = {
     MapComponent,
     CreateCardComponent,
     FavoriteCardsComponent,
-    WeatherComponent
+    WeatherComponent,
+    BikesComponent
   ],
   imports: [
     BrowserModule,

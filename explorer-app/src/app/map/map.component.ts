@@ -17,7 +17,6 @@ export class MapComponent implements OnInit {
   iconUrl: string = 'http://openweathermap.org/img/w/04d.png';
 
   locations: Card[] = [];
-  likedLocations: Card[] = [];
 
   constructor(
     private cardService: CardService,
@@ -38,16 +37,8 @@ export class MapComponent implements OnInit {
       .subscribe(result => this.locations = result);
   }
 
-  showLikedLocations():void {
-    let result = this.locations.filter(location => {
-      return location.like;
-    })
-    console.log(result);
-  }
-
   goToDetail(): void {
     // this.router.navigate(['/card', card.id]);
-    console.log(location);
   }
 
 }

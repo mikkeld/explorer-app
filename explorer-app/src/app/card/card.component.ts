@@ -21,17 +21,14 @@ export class CardComponent implements OnInit {
   uid = 'roopk5ShJ5Wt9AyDv982XetFSrQ2';
   cards: Card[];
   locations: Card[] = [];
+  favoriteLocations: Card[] = [];
 
   constructor(
     private cardService: CardService,
     private router: Router,
     public af: AngularFire,
     private route: ActivatedRoute)
-  {
-    if(this.router.url == '/favorites') {
-      console.log(this.locations)
-    }
-  }
+  {  }
 
   ngOnInit() {
     this.cardService.getLocations()
@@ -44,7 +41,9 @@ export class CardComponent implements OnInit {
           return location;
         })
       })
-      .subscribe(result => this.locations = result);
+      .subscribe(result => {
+        this.locations = result;
+      });
 
   }
 
