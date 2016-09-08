@@ -1,3 +1,12 @@
-<p>
-  bikes works!
-</p>
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <sebm-google-map-marker *ngFor="let bikestand of bikeStands" [latitude]="bikestand.position.lat" [longitude]="bikestand.position.lng" [iconUrl]="bikestand.imagePath">
+    <sebm-google-map-info-window>
+      {{bikestand.name}}
+      <hr>
+      <b>{{bikestand.available_bikes}}</b> bikes free
+      <md-card-actions align="end">
+        <button md-button color="primary" (click)="gotoDetail()">DETAILS</button>
+      </md-card-actions>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
