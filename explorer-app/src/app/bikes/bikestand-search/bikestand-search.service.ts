@@ -1,8 +1,26 @@
 import { Injectable } from '@angular/core';
+import { BikeStand } from '../bike';
+import { Http, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class BikestandSearchService {
 
-  constructor() { }
+  constructor(private http: Http) { }
+
+  getAll(): Observable<BikeStand[]> {
+    return this.http.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Dublin&apiKey=01763a585c8ab4e264684c27269cb9aec86a24bf`)
+      .map((b: Response) => {
+        return b.json();
+      })
+  }
+
+  search(stationNumber: number): Observable<BikeStand[]> {
+    return this.http.get(`https://api.jcdecaux.com/vls/v1/stations/${stationNumber}?contract=Dublin&apiKey=01763a585c8ab4e264684c27269cb9aec86a24bf`)
+      .map((b: Response) => {
+        console.log(b.json() as BikeStand[])
+        return [b.json()] as BikeStand[];
+      });
+  }
 
 }

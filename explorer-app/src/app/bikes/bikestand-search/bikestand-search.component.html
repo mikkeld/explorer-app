@@ -1,3 +1,5 @@
-<p>
-  bikestand-search works!
-</p>
+<div id="search-component">
+  <h4>Bikestand search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div *ngFor="let bikestand of bikestands | async">{{bikestand.name}}</div>
+</div>
