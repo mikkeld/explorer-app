@@ -16,25 +16,24 @@ export class BikestandSearchComponent implements OnInit {
 
   test = "Yo";
   bikestands: Observable<BikeStand[]>;
-  private searchTerms = new Subject<number>();
+  private searchTerms = new Subject<string>();
 
   constructor(private bikestandSearchService: BikestandSearchService) {  }
 
-  search(term: number): void {
+  search(term: string): void {
     this.searchTerms.next(term);
   }
 
   ngOnInit(): void {
+
     this.bikestands = this.searchTerms
       .debounceTime(300)
       .distinctUntilChanged()
-      .switchMap(term => term ? this.bikestandSearchService.search(term) : Observable.of<BikeStand[]>([]))
+      .switchMap(term => term ? this.bikestandSearchService.getAll(term) : Observable.of<BikeStand[]>([]))
       .catch(error => {
         console.log(error);
         return Observable.of<BikeStand[]>([])
       });
-
-    window["all"] = this.bikestandSearchService.getAll();
   }
 
 }

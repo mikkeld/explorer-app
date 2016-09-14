@@ -8,10 +8,12 @@ export class BikestandSearchService {
 
   constructor(private http: Http) { }
 
-  getAll(): Observable<BikeStand[]> {
+  getAll(term: string): Observable<BikeStand[]> {
     return this.http.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Dublin&apiKey=01763a585c8ab4e264684c27269cb9aec86a24bf`)
       .map((b: Response) => {
-        return b.json();
+        return b.json().filter(bikestand => {
+          return bikestand.name.search(term) > -1;
+        })
       })
   }
 

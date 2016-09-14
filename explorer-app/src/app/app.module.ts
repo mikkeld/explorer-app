@@ -31,6 +31,7 @@ import { WeatherService } from './weather/weather.service';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BikesComponent } from './bikes/bikes.component';
+import { BikestandSearchComponent } from './bikes/bikestand-search/bikestand-search.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
@@ -54,7 +55,8 @@ export const myFirebaseAuthConfig = {
     CreateCardComponent,
     FavoriteCardsComponent,
     WeatherComponent,
-    BikesComponent
+    BikesComponent,
+    BikestandSearchComponent
   ],
   imports: [
     BrowserModule,

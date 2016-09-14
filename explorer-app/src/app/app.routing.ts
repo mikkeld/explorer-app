@@ -7,6 +7,7 @@ import {MapComponent} from './map/map.component';
 import {FavoriteCardsComponent} from "./favorite-cards/favorite-cards.component";
 import {WeatherComponent} from "./weather/weather.component";
 import { BikesComponent } from './bikes/bikes.component';
+import {BikestandSearchComponent} from "./bikes/bikestand-search/bikestand-search.component";
 
 const appRoutes: Routes = [
   {
@@ -32,6 +33,10 @@ const appRoutes: Routes = [
   {
     path: 'bikes',
     component: BikesComponent
+  },
+  {
+    path: 'search',
+    component: BikestandSearchComponent
   },
   {
     path: '',
