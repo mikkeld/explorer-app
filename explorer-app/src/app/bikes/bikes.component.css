@@ -1,3 +1,11 @@
 .sebm-google-map-container {
   height: 90%;
 }
+
+:host >>> app-bikestand-search {
+  position:absolute;
+  top:70px;
+  left: 45%;
+  z-index: 1;
+  border:1px solid;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { BikestandSearchService } from './bikestand-search.service';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
@@ -14,8 +14,13 @@ import 'rxjs/add/operator/distinctUntilChanged';
 })
 export class BikestandSearchComponent implements OnInit {
 
-  test = "Yo";
+  @Output() onSelected = new EventEmitter<number>();
+  selectStation(id: number) {
+    this.onSelected.emit(id);
+  }
+
   bikestands: Observable<BikeStand[]>;
+
   private searchTerms = new Subject<string>();
 
   constructor(private bikestandSearchService: BikestandSearchService) {  }

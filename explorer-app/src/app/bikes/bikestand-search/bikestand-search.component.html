@@ -1,4 +1,4 @@
 <div id="search-component">
   <md-input placeholder="Bikestand Search" #searchBox id="search-box" (keyup)="search(searchBox.value)"></md-input>
-  <div *ngFor="let bikestand of bikestands | async"><a>{{bikestand.name}}</a></div>
+  <div *ngFor="let bikestand of bikestands | async" class="bikestand-container"><a (click)="selectStation(bikestand.number)">{{bikestand.address}}</a></div>
 </div>

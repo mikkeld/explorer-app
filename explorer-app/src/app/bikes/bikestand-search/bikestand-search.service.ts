@@ -12,7 +12,8 @@ export class BikestandSearchService {
     return this.http.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Dublin&apiKey=01763a585c8ab4e264684c27269cb9aec86a24bf`)
       .map((b: Response) => {
         return b.json().filter(bikestand => {
-          return bikestand.name.search(term) > -1;
+          let address = bikestand.address.toLowerCase();
+          return address.search(term.toLowerCase()) > -1;
         })
       })
   }

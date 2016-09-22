@@ -1,3 +1,4 @@
+<app-bikestand-search (onSelected)="onSelected($event)" class="bikestand-search"></app-bikestand-search>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
   <sebm-google-map-marker *ngFor="let bikestand of bikeStands" [latitude]="bikestand.position.lat" [longitude]="bikestand.position.lng" [iconUrl]="bikestand.imagePath">
     <sebm-google-map-info-window>
