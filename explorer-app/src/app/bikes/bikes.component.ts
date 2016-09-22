@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { BikesService } from './bikes.service';
 import { Observable }     from 'rxjs/Observable';
 import { BikeStand } from './bike';
-import { BikestandSearchComponent } from './bikestand-search/bikestand-search.component'
+import { BikestandSearchComponent } from './bikestand-search/bikestand-search.component';
+import { BikestandStatComponent } from './bikestand-stat/bikestand-stat.component';
 
 @Component({
   selector: 'app-bikes',
   templateUrl: 'bikes.component.html',
   styleUrls: ['bikes.component.css'],
   providers: [BikesService],
-  directives: [BikestandSearchComponent]
+  directives: [BikestandSearchComponent, BikestandStatComponent]
 })
 export class BikesComponent implements OnInit {
 
@@ -39,8 +40,6 @@ export class BikesComponent implements OnInit {
       })
   }
 
-
-
   setColorForBikeStand(availableBikes): string {
     const imagesPath = '../app/images/';
     if(availableBikes === 0) {
@@ -50,6 +49,10 @@ export class BikesComponent implements OnInit {
     } else {
       return `${imagesPath}green.png`
     }
+  }
+
+  clicked(): void {
+    console.log("marker clicked");
   }
 
 
