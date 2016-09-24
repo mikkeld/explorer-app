@@ -3,14 +3,13 @@ import { BikesService } from './bikes.service';
 import { Observable }     from 'rxjs/Observable';
 import { BikeStand } from './bike';
 import { BikestandSearchComponent } from './bikestand-search/bikestand-search.component';
-import { BikestandStatComponent } from './bikestand-stat/bikestand-stat.component';
 
 @Component({
   selector: 'app-bikes',
   templateUrl: 'bikes.component.html',
   styleUrls: ['bikes.component.css'],
   providers: [BikesService],
-  directives: [BikestandSearchComponent, BikestandStatComponent]
+  directives: [BikestandSearchComponent]
 })
 export class BikesComponent implements OnInit {
 
@@ -50,11 +49,5 @@ export class BikesComponent implements OnInit {
       return `${imagesPath}green.png`
     }
   }
-
-  clicked(): void {
-    console.log("marker clicked");
-  }
-
-
 
 }

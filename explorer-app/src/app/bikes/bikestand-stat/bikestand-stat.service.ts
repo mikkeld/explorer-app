@@ -15,14 +15,9 @@ export class BikestandStatService {
     return this.af.database.list(`/time/${id}`)
       .map(data => {
         return data.map(res => {
-          return res.available_bikes;
+          return {available_bikes: res.available_bikes, time: res.timestamp };
         })
       });
-      // .map(day => {
-      //   day.map(minute => {
-      //     return {minute: minute.timestamp, avaliableBikes: minute.available_bikes}
-      //   })
-      // })
   }
 
 }

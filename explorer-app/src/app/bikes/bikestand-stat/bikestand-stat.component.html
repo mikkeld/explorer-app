@@ -1,3 +1,5 @@
-<p>
-  {{currentBikestand.address}}
-</p>
+<ul>
+  <li *ngFor="let stat of bikestandStat">{{stat.time}}, {{stat.available_bikes}}</li>
+</ul>
+
+

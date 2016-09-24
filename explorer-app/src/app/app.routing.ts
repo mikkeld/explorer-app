@@ -8,6 +8,7 @@ import {FavoriteCardsComponent} from "./favorite-cards/favorite-cards.component"
 import {WeatherComponent} from "./weather/weather.component";
 import { BikesComponent } from './bikes/bikes.component';
 import {BikestandSearchComponent} from "./bikes/bikestand-search/bikestand-search.component";
+import {BikestandStatComponent} from "./bikes/bikestand-stat/bikestand-stat.component";
 
 const appRoutes: Routes = [
   {
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
   {
     path: 'search',
     component: BikestandSearchComponent
+  },
+  {
+    path: 'stats/:id',
+    component: BikestandStatComponent
   },
   {
     path: '',
