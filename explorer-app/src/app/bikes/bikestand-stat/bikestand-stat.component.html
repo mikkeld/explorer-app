@@ -10,12 +10,13 @@
     <ul>
       <li *ngFor="let stat of bikestandStat">{{stat.time}}, {{stat.available_bikes}}</li>
     </ul>
-    <base-chart *ngIf="barChartData.length > 0" class="chart"
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                [legend]="barChartLegend"
-                [chartType]="barChartType">
-    </base-chart>
+    <base-chart *ngIf="lineChartData.length > 0" class="chart"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></base-chart>
   </md-card>
 </div>
+

@@ -20,8 +20,8 @@ export class BikestandStatComponent implements OnInit {
 
   currentBikestand: BikeStand;
   bikestandStat: Object[];
-  barChartData: any[] = [];
-  barChartLabels: string[] = [];
+  public lineChartData:Array<any> = [];
+  public lineChartLabels:Array<any> = [];
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
@@ -37,11 +37,11 @@ export class BikestandStatComponent implements OnInit {
           //Push % free pikes to chart data
           let temp = [];
           res.forEach(time => {
-            this.barChartLabels.push(time.time);
+            this.lineChartLabels.push(time.time);
             temp.push(time.available_bikes / bikestand[0].bike_stands);
           });
           console.log(bikestand[0].bike_stands)
-          this.barChartData.push({data:temp});
+          this.lineChartData.push({data:temp});
         });
 
       this.bikestandService.getBikeStandFromId(id)
@@ -69,8 +69,24 @@ export class BikestandStatComponent implements OnInit {
     }
   };
 
-  public barChartType:string = 'bar';
-  public barChartLegend:boolean = false;
+  public lineChartOptions:any = {
+    animation: false,
+    responsive: true,
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display:false
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          display:false
+        }
+      }]
+    }
+  };
+  public lineChartLegend:boolean = false;
+  public lineChartType:string = 'line';
 
   //Average bikes per specified time interval
   avg(arr, groupOf) {
