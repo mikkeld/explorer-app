@@ -1,5 +1,21 @@
-<ul>
-  <li *ngFor="let stat of bikestandStat">{{stat.time}}, {{stat.available_bikes}}</li>
-</ul>
+<div class="main-container">
+  <md-card *ngIf="currentBikestand">
+    <img md-card-image src="'../../app/images/bike-header.jpg">
+    <md-card-title>{{currentBikestand.address}}</md-card-title>
+    <md-card-content>Currently {{currentBikestand.available_bikes}} bikes free at {{currentBikestand.address}}</md-card-content>
+  </md-card>
 
-
+  <md-card>
+    <h3>% of bikes available</h3>
+    <ul>
+      <li *ngFor="let stat of bikestandStat">{{stat.time}}, {{stat.available_bikes}}</li>
+    </ul>
+    <base-chart *ngIf="barChartData.length > 0" class="chart"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+    </base-chart>
+  </md-card>
+</div>

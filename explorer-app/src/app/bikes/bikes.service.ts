@@ -15,4 +15,11 @@ export class BikesService {
       })
   }
 
+  getBikeStandFromId(id: number): Observable<BikeStand> {
+    return this.http.get(`https://api.jcdecaux.com/vls/v1/stations/${id}?contract=Dublin&apiKey=01763a585c8ab4e264684c27269cb9aec86a24bf`)
+      .map(bikestand => {
+        return bikestand.json() || {};
+      })
+  }
+
 }

@@ -1,0 +1,14 @@
+.main-container {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+
+md-card {
+  box-sizing: border-box;
+  margin: 16px;
+}

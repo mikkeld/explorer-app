@@ -3,6 +3,7 @@ import { BikesService } from './bikes.service';
 import { Observable }     from 'rxjs/Observable';
 import { BikeStand } from './bike';
 import { BikestandSearchComponent } from './bikestand-search/bikestand-search.component';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-bikes',
@@ -13,15 +14,19 @@ import { BikestandSearchComponent } from './bikestand-search/bikestand-search.co
 })
 export class BikesComponent implements OnInit {
 
-  constructor(private bikesService: BikesService) { }
+  constructor(
+    private bikesService: BikesService,
+    private router: Router
+  ) { }
 
   onSelected(id: number) {
-    this.bikeStands = this.bikeStands.filter(bikestand => {
+    this.bikeStands = this.initialBikestand.filter(bikestand => {
       return bikestand.number == id;
     })
   }
 
   bikeStands: BikeStand[];
+  private initialBikestand: BikeStand[];
   lat:number = 53.345764;
   lng:number = -6.261247;
   zoom:number = 14;
@@ -35,6 +40,7 @@ export class BikesComponent implements OnInit {
         })
       })
       .subscribe(bikeStands => {
+        this.initialBikestand = bikeStands;
         this.bikeStands = bikeStands;
       })
   }
@@ -48,6 +54,10 @@ export class BikesComponent implements OnInit {
     } else {
       return `${imagesPath}green.png`
     }
+  }
+
+  gotoDetail(bikestand: BikeStand): void {
+    this.router.navigate(['/stats', bikestand.number]);
   }
 
 }
