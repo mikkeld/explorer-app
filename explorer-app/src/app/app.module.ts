@@ -34,6 +34,7 @@ import { BikesComponent } from './bikes/bikes.component';
 import { BikestandSearchComponent } from './bikes/bikestand-search/bikestand-search.component';
 import { BikestandStatComponent } from './bikes/bikestand-stat/bikestand-stat.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { MichaelMapComponent } from './michael-map/michael-map.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA-Grss9k2dfwX9SS_nsKRgNlDOxu7NFxU",
@@ -59,7 +60,8 @@ export const myFirebaseAuthConfig = {
     WeatherComponent,
     BikesComponent,
     BikestandSearchComponent,
-    BikestandStatComponent
+    BikestandStatComponent,
+    MichaelMapComponent
   ],
   imports: [
     BrowserModule,

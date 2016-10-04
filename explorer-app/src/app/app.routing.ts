@@ -9,6 +9,7 @@ import {WeatherComponent} from "./weather/weather.component";
 import { BikesComponent } from './bikes/bikes.component';
 import {BikestandSearchComponent} from "./bikes/bikestand-search/bikestand-search.component";
 import {BikestandStatComponent} from "./bikes/bikestand-stat/bikestand-stat.component";
+import {MichaelMapComponent} from "./michael-map/michael-map.component";
 
 const appRoutes: Routes = [
   {
@@ -42,6 +43,10 @@ const appRoutes: Routes = [
   {
     path: 'stats/:id',
     component: BikestandStatComponent
+  },
+  {
+    path: 'michaelmap',
+    component: MichaelMapComponent
   },
   {
     path: '',

@@ -34,7 +34,7 @@ export class BikestandStatComponent implements OnInit {
             return new Date(time).getHours();
           });
 
-          //Push % free pikes to chart data
+          //Push % free bikes to chart data
           let temp = [];
           res.forEach(time => {
             this.lineChartLabels.push(time.time);
@@ -52,25 +52,7 @@ export class BikestandStatComponent implements OnInit {
 
   }
 
-  public barChartOptions:any = {
-    scaleShowVerticalLines: false,
-    responsive: true,
-    scales: {
-      xAxes: [{
-        gridLines: {
-          display:false
-        }
-      }],
-      yAxes: [{
-        gridLines: {
-          display:false
-        }
-      }]
-    }
-  };
-
   public lineChartOptions:any = {
-    animation: false,
     responsive: true,
     scales: {
       xAxes: [{
